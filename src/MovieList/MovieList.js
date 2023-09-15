@@ -3,7 +3,7 @@ import React from 'react';
 // Import the Movie component to use within MovieList
 import Movie from './Movie';
 // Import the mock data from the data.js file
-import data from './data';
+import data from '../data';
 
 // Define the MovieList functional component
 const MovieList = () => {
