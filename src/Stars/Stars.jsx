@@ -1,6 +1,6 @@
 // Import React library for JSX and component creation
 import React from 'react';
-
+import './Stars.css'
 // Define the Stars functional component
 // It takes 'rating' as a prop to represent the number of filled stars
 const Stars = ({ rating }) => {

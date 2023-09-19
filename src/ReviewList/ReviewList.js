@@ -2,7 +2,7 @@
 import React from 'react';
 
 // Import the Review component, which will be used to display each review
-import Review from './Review';
+import Review from '../Review/Review';
 
 // Define the ReviewList functional component
 // It takes 'reviews' as a prop, an array of review objects

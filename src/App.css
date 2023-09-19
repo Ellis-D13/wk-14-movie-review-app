@@ -8,12 +8,12 @@
 }
 
 :root {
-  --font-roboto: "Roboto Slab", serif;
-  --font-raleway: "Raleway", sans-serif;
+  --font-helvetica: "Helvetica", sans-serif;
+  
 }
 
 body {
-  font-family: var(--font-roboto);
+  font-family: var(--font-helvetica);
   background-color: #212426;
 }
 
@@ -29,30 +29,23 @@ body {
 h1 {
   font-size: 3rem;
   letter-spacing: 0.9px;
-  background: linear-gradient(
-    90deg,
-    rgba(249, 211, 180, 1) 0%,
-    rgba(249, 211, 180, 0) 100%
-  );
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  width: fit-content;
+  background: none; 
+  color: black; /* text color */
 }
 
 .search {
-  width: 71%;
-  margin: 4rem 0 2rem;
-
+  width: 60%; 
+  margin: 3rem 0 1.5rem; 
+  
   display: flex;
   align-items: center;
   justify-content: center;
 
-  padding: 1.5rem 1.75rem;
-  border-radius: 3rem;
-  background: #1f2123;
-  -webkit-box-shadow: 5px 5px 7px #1c1d1f, -5px -5px 7px #222527;
-  box-shadow: 5px 5px 7px #1c1d1f, -5px -5px 7px #222527;
+  padding: 1rem 1.5rem; 
+  border-radius: 0; /* square */
+  border: 2px solid #fafefe; /* Defines a border */
+  background: #f59607; /* Change to your desired background color */
+  box-shadow: none;
 }
 
 .search input {
@@ -65,7 +58,7 @@ h1 {
 
   outline: none;
   color: #a1a1a1;
-  background: #1f2123;
+  background: #e9ecf0;
 }
 
 .search img {
@@ -74,19 +67,17 @@ h1 {
   cursor: pointer;
 }
 
-/* .search button {
+.search button {
   padding: 20px 40px;
-  border-radius: 0.5rem;
+  border-radius: 0; /* square button */
   margin-left: 15px;
-  color: #a1a1a1;
+  color: #fcfcfc;
   font-family: var(--font-raleway);
-  font-weight: 900;
-  letter-spacing: 0.75px;
-  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 0.90px;
+  font-size: 1.5rem;
   cursor: pointer;
-  background: #1f2123;
-  -webkit-box-shadow: 5px 5px 7px #1c1d1f, -5px -5px 7px #222527;
-  box-shadow: 5px 5px 7px #1c1d1f, -5px -5px 7px #222527;
+  background: #8f2e01;
 } */
 
 .empty {
@@ -120,7 +111,7 @@ h1 {
   margin: 1.5rem;
 
   position: relative;
-  border-radius: 12px;
+  border-radius: 0;
   overflow: hidden;
   border: none;
 
@@ -217,7 +208,7 @@ h1 {
   }
 
   h1 {
-    font-size: 2rem;
+    font-size: 3rem;
   }
 
   .container {
