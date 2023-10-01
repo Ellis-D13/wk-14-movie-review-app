@@ -1,26 +1,22 @@
-// Import React library for JSX and component creation
 import React from 'react';
-import './Stars.css'
-// Define the Stars functional component
-// It takes 'rating' as a prop to represent the number of filled stars
-const Stars = ({ rating }) => {
+import './Stars.css';
 
-  // Create an array with 5 elements for 5 stars
-  // Then map each element to either a filled star (★) or an empty star (☆) based on the rating
-  const stars = Array.from({ length: 5 }, (v, i) => {
-    return i < rating ? "★" : "☆";
-  }).join(" "); // Join the array elements into a string separated by spaces
-
+const Stars = ({ rating, onUpdate }) => {
   return (
-    // Start the JSX for the component
     <div className="stars">
-
-      {/* Display the stars as a string */}
-      {stars}
-
+      {Array.from({ length: 5 }, (_, i) => {
+        return (
+          <i 
+            key={i}
+            className={`bi ${i < rating ? 'bi-star-fill' : 'bi-star'}`}
+            onClick={() => onUpdate(i + 1)}
+          >
+          </i>
+        );
+      })}
     </div>
   );
 };
 
-// Export the Stars component to make it available for import in other files
 export default Stars;
+

@@ -1,34 +1,50 @@
 import React, { useState } from 'react';
 import Stars from '../../Stars/Stars';
-import ReviewList from '../../ReviewList/ReviewList';
+import ReviewList from '../ReviewList/ReviewList';
+import MovieService from '../../MovieService';
+
+const service = new MovieService();
 
 // Define the MovieCard functional component
-const MovieCard = ({ movie, updateRating, addReview }) => { // Removed extra }
-  const [newReview, setNewReview] = useState(""); 
+const MovieCard = ({ movie, updateRating, addReview }) => {
+  // Local state to handle new reviews
+  const [newReview, setNewReview] = useState("");
 
+  // Function to handle review submission
   const handleSubmit = (e) => {
-    e.preventDefault(); 
-    addReview(movie.imdbID, newReview); 
-    setNewReview(""); 
+    e.preventDefault();
+    // Add the review through service and update the component state
+    service.addReview(movie.imdbID, newReview).then(() => {
+      addReview(movie.imdbID, newReview);
+      setNewReview("");
+    });
+
+    // Alternatively, you can use the addReview function passed as a prop
+    // addReview(movie.imdbID, newReview);
+    // setNewReview("");
   };
 
   return (
     <div className="movie" key={movie.imdbID}>
       <div>
-        <p>{movie.Year}</p> {/* Added movie. */}
+        <p>{movie.Year}</p>
       </div>
-
       <div>
-        <img src={movie.Poster !== "N/A" ? movie.Poster : "https://via.placeholder.com/400"} alt={movie.Title} /> {/* Added movie. */}
+      <img 
+  src={movie.Poster !== "N/A" ? movie.Poster : "/Not found.png"} 
+  alt={movie.Title} 
+  style={{ width: '300px', height: '400px' }}
+/>
       </div>
-
       <div>
-        <span>{movie.Type}</span> {/* Added movie. */}
-        <h3>{movie.Title}</h3> {/* Added movie. */}
+        <span>{movie.Type}</span>
+        <h3>{movie.Title}</h3>
       </div>
 
+      {/* Star rating component */}
       <Stars rating={movie.rating} onUpdate={(rating) => updateRating(movie.imdbID, rating)} /> 
 
+      {/* Reviews section */}
       <div className="reviews">
         <h4>Reviews:</h4>
         {movie.reviews.length > 0 ? (
@@ -37,7 +53,11 @@ const MovieCard = ({ movie, updateRating, addReview }) => { // Removed extra }
           <p>No reviews yet.</p>
         )}
       </div>
-        <ReviewList reviews={movie.reviews} />
+
+      {/* Existing reviews list */}
+      <ReviewList reviews={movie.reviews} />
+
+      {/* Form to add a new review */}
       <form onSubmit={handleSubmit}>
         <input
           type="text"

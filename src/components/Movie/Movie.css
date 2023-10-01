@@ -1,0 +1,4 @@
+.movie {
+    width: calc(33.333% - 20px); /* Three items per row, accounting for 20px of margin */
+    margin: 10px;
+  }

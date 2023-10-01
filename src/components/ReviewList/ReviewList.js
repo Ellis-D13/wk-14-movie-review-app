@@ -1,8 +1,9 @@
 // Import the React library for JSX and component creation
 import React from 'react';
-
+// ReviewList.js
+import './ReviewList.css';
 // Import the Review component, which will be used to display each review
-import Review from '../Review/Review';
+import Review from '../../Review/Review';
 
 // Define the ReviewList functional component
 // It takes 'reviews' as a prop, an array of review objects
