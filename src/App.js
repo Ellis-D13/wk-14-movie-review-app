@@ -57,7 +57,16 @@ const App = () => {
     <div className="app">
       <h1>Movie Library</h1>
       <div className="search">
-        {/* Existing search functionality */}
+      <input
+        type="text"
+        placeholder="Search for a movie..."
+        value={searchTerm}
+        onChange={e => setSearchTerm(e.target.value)}
+      />
+      <button onClick={() => searchMovies(searchTerm)}>
+        Search
+      </button>
+    
       </div>
 
       {/* Bootstrap container-fluid for full-width */}

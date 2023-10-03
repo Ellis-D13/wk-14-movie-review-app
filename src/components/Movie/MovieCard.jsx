@@ -60,6 +60,7 @@ const MovieCard = ({ movie, updateRating, addReview }) => {
       {/* Form to add a new review */}
       <form onSubmit={handleSubmit}>
         <input
+          className='review-input' //added 
           type="text"
           value={newReview}
           onChange={(e) => setNewReview(e.target.value)}

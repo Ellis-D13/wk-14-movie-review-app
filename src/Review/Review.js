@@ -13,6 +13,7 @@ const Review = ({ text, author }) => {
       <p className="review-text">
         {text}
       </p>
+      
 
       {/* Display the author of the review */}
       <p className="review-author">
